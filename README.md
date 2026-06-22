@@ -3,7 +3,7 @@
 Multi-page GitHub Pages site for AI agent systems and retrieval-augmented generation services.
 
 ## Features
-- Multi-page architecture
+- Affordable architecture and tech stacks 
 - Responsive design
 - Agentic AI + RAG positioning
 - Clean enterprise UI
