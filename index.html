@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic AI & RAG Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Unique Home Page Component Styles (Marquee, LED Effects & Hero Adjustments) */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 3rem 1.5rem 6rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-image-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Ambient glow behind the graphic */
+        .hero-image-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-gif {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            color: var(--text-main);
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Premium CTA Button Container --- */
+        .cta-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; 
+            margin-top: 1rem;
+        }
+
+        .btn {
+            margin-bottom: 3rem; /* Space before "Tech Stacks" */
+        }
+
+        /* --- LED / Marquee Sections --- */
+        .marquee-section {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+
+        .marquee-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Outer container hiding overflow and creating a fade overlay effect */
+        .led-display {
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            width: 100%;
+            background: #070a12;
+            padding: 1rem 0;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+        }
+
+        /* Inner container holding two copies of items for seamless loop */
+        .led-track {
+            display: flex;
+            width: max-content;
+            gap: 3rem;
+            padding-right: 3rem;
+        }
+
+        /* Left-to-Right Track Animation */
+        .ltr-track {
+            animation: scroll-ltr 20s linear infinite;
+        }
+
+        /* Right-to-Left Track Animation */
+        .rtl-track {
+            animation: scroll-rtl 20s linear infinite;
+        }
+
+        /* Individual item block layout */
+        .logo-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            white-space: nowrap;
+        }
+
+        /* Decorative colored dot to look like a glowing node/LED asset */
+        .logo-item::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+        }
+        
+        .database-section .logo-item::before {
+            background-color: #10b981; /* Emerald green accent for databases */
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        /* Pause animations on hover so users can examine logos */
+        .led-display:hover .led-track {
+            animation-play-state: paused;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes scroll-ltr {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+        }
+
+        @keyframes scroll-rtl {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1rem 4rem 1rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .cta-container {
+                align-items: center; 
+            }
+            .marquee-section {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div><b>AgenticAI</b></div>
+    <nav>
+        <a href="services.html" style="color: rgb(59, 130, 246); background-color: rgba(59, 130, 246, 0.2); padding: 5px 10px; border-radius: 4px;">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Agentic AI + RAG Systems</h1>
+        
+        <div class="hero-image-container">
+            <img src="assets/img/consultant.gif" alt="AI Consultant Illustration" class="hero-gif">
+        </div>
+        
+        <h2>Enterprise-grade Retrieval-Augmented Generation and Autonomous AI Agents.</h2>
+
+        <div class="cta-container">
+            <a class="btn" href="services.html" style="display: block; width: max-content; margin: 0 auto;">Explore Services</a>
+
+            <div class="marquee-section">
+                <div class="marquee-subtitle">Tech Stacks</div>
+                <div class="led-display">
+                    <div class="led-track ltr-track">
+                        <div class="logo-item">Python</div>
+                        <div class="logo-item">LangChain</div>
+                        <div class="logo-item">LlamaIndex</div>
+                        <div class="logo-item">OpenAI API</div>
+                        <div class="logo-item">Hugging Face</div>
+                        <div class="logo-item">TypeScript</div>
+                        <div class="logo-item">Python</div>
+                        <div class="logo-item">LangChain</div>
+                        <div class="logo-item">LlamaIndex</div>
+                        <div class="logo-item">OpenAI API</div>
+                        <div class="logo-item">Hugging Face</div>
+                        <div class="logo-item">TypeScript</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marquee-section database-section">
+                <div class="marquee-subtitle">Databases</div>
+                <div class="led-display">
+                    <div class="led-track rgb-track rtl-track">
+                        <div class="logo-item">Pinecone</div>
+                        <div class="logo-item">ChromaDB</div>
+                        <div class="logo-item">PostgreSQL</div>
+                        <div class="logo-item">MongoDB</div>
+                        <div class="logo-item">Milvus</div>
+                        <div class="logo-item">Weaviate</div>
+                        <div class="logo-item">Pinecone</div>
+                        <div class="logo-item">ChromaDB</div>
+                        <div class="logo-item">PostgreSQL</div>
+                        <div class="logo-item">MongoDB</div>
+                        <div class="logo-item">Milvus</div>
+                        <div class="logo-item">Weaviate</div>
+                    </div>
+                </div>
+            </div>
+			<div class="marquee-section database-section">
+                <div class="marquee-subtitle">CLOUDS</div>
+                <div class="led-display">
+                    <div class="led-track ltr-track">
+                        <div class="logo-item">GCP</div>
+                        <div class="logo-item">Azure</div>
+                        <div class="logo-item">AWS</div>
+						<div class="logo-item">DigitalOcean</div>
+						<div class="logo-item">Cloudflare</div>
+						<div class="logo-item">GCP</div>
+                        <div class="logo-item">Azure</div>
+                        <div class="logo-item">AWS</div>
+						<div class="logo-item">DigitalOcean</div>
+						<div class="logo-item">Cloudflare</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    &copy; 2026 AgenticAI. All rights reserved.
+</footer>
+
+</body>
+</html>
